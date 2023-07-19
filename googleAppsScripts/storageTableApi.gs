@@ -63,10 +63,11 @@ function handleEquipment(){
   if (!storageSheet) throw "Storage table is not found";
 
   const columnsMapping = getColumnsMapping(storageSheet);
+  const availableEquipment = makeEquipmentDictionary(storageSheet, columnsMapping.equipment.col, columnsMapping.equipment.row);
   
-
+  console.log(availableEquipment);
   
-  //console.log(storageSheet.getRange(1,1).getValues());
+  
 }
 
 function findStoreSheet(){
@@ -75,7 +76,10 @@ function findStoreSheet(){
 }
 
 /**
- * @param {SpreadsheetApp.Sheet} storageSheet - The date
+ * @param {SpreadsheetApp.Sheet} storageSheet
+ * @type {name: String, length: number, row: number, col: number} Column
+ * @type {person: Column, date: Column, equipment: Column, count: Column} ColumnMapping
+ * @returns {ColumnMapping}
  */
 function getColumnsMapping(storageSheet){
   const columns = {
@@ -141,4 +145,20 @@ function getColumnsMapping(storageSheet){
   });
 
   return columns;
+}
+
+/**
+ * @param {SpreadsheetApp.Sheet} storageSheet
+ * @param {number} equipmentColumnIndex
+ * @param {number} equipmentHeaderRowIndex
+ */
+function makeEquipmentDictionary(storageSheet, equipmentColumnIndex, equipmentHeaderRowIndex){
+  let maxRows = storageSheet.getMaxRows();
+  const equipmentDictionary = {};
+  for (let i = equipmentHeaderRowIndex+1; i <= maxRows; i++){
+    const equipment = storageSheet.getSheetValues(i,equipmentColumnIndex,1,1)[0][0].toString();
+    if (!equipment || equipmentDictionary.hasOwnProperty(equipment)) continue;
+    equipmentDictionary[equipment] = undefined;
+  }
+  return equipmentDictionary;
 }
