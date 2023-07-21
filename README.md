@@ -8,6 +8,7 @@
 * Swagger UI
 * REST API
 * PostgreSQL
+* Google Apps Script
 
 ## Способ сборки
 
