@@ -4,6 +4,11 @@
 
 ## Технологии
 
+* .NET 7
+* Swagger UI
+* REST API
+* PostgreSQL
+
 ## Способ сборки
 
 ## APIv1 методы
