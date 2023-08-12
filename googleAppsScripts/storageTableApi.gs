@@ -19,29 +19,22 @@ const SERVER_ERROR = {code: 500, message: "Server error"};
 
 const RESPONSE_TEMPLATE = {code: 200, message: ""};
 
+// ACTIONS
+const EQUIPMENT = "equipment";
 
 
-// Use URL/exec?secret=<yoursecret>?action=<action name>
+
+// Use URL/exec?secret=<yoursecret>&action=<action name>
 function doGet(e) {
   const accessDenied = handleAccessDenied(e);
   if (accessDenied) return HtmlService.createHtmlOutput(accessDenied);
 
   const action = handleAction(e);
-  if (action == UNKNOWN_ACTION) return HtmlService.createHtmlOutput(JSON.stringify(UNKNOWN_ACTION));
+  if (action === UNKNOWN_ACTION) return HtmlService.createHtmlOutput(JSON.stringify(UNKNOWN_ACTION));
   
-  let response = SERVER_ERROR;
+  let response = action();
 
-  try {
-    switch (action) {
-      default:
-        response = handleEquipment();
-        break;
-    }
-  } catch (e){
-    response = {...RESPONSE_TEMPLATE, message: e};
-  }
-
-  return HtmlService.createHtmlOutput(JSON.stringify(response));
+  return ContentService.createTextOutput(JSON.stringify(response));
 }
 
 function handleAccessDenied(e){
@@ -55,7 +48,7 @@ function handleAction(e){
   if (!e || !e.parameter || !e.parameter.action) {
     return UNKNOWN_ACTION;
   }
-  return e.parameter.action;
+  if (e.parameter.action === EQUIPMENT) return handleEquipment;
 }
 
 function handleEquipment(){
@@ -63,11 +56,13 @@ function handleEquipment(){
   if (!storageSheet) throw "Storage table is not found";
 
   const columnsMapping = getColumnsMapping(storageSheet);
-  const availableEquipment = makeEquipmentDictionary(storageSheet, columnsMapping.equipment.col, columnsMapping.equipment.row);
-  
-  console.log(availableEquipment);
+  const takenEquipment = makeEquipmentDictionary(storageSheet, columnsMapping.equipment, columnsMapping.equipment.row, columnsMapping.count);
   
   
+  
+  return {
+    takenEquipment
+  };
 }
 
 function findStoreSheet(){
@@ -152,13 +147,37 @@ function getColumnsMapping(storageSheet){
  * @param {number} equipmentColumnIndex
  * @param {number} equipmentHeaderRowIndex
  */
-function makeEquipmentDictionary(storageSheet, equipmentColumnIndex, equipmentHeaderRowIndex){
+function makeEquipmentDictionary(storageSheet, equipmentColumn, equipmentHeaderRowIndex, countColumn){
   let maxRows = storageSheet.getMaxRows();
   const equipmentDictionary = {};
   for (let i = equipmentHeaderRowIndex+1; i <= maxRows; i++){
-    const equipment = storageSheet.getSheetValues(i,equipmentColumnIndex,1,1)[0][0].toString();
-    if (!equipment || equipmentDictionary.hasOwnProperty(equipment)) continue;
-    equipmentDictionary[equipment] = undefined;
+    // Get Equipment name and add it to dictionary
+    const equipment = storageSheet.getSheetValues(i,equipmentColumn.col,1,1)[0][0].toString();
+    if (!equipment) continue;
+    if (!equipmentDictionary.hasOwnProperty(equipment)) equipmentDictionary[equipment] = 0;
+    // Get taken equipment
+    const takenRange = storageSheet.getRange(i,countColumn.col,1,countColumn.length);
+    const takenCount = getTakenEquipmentCount(takenRange);
+    equipmentDictionary[equipment] += takenCount;
   }
   return equipmentDictionary;
+}
+
+/**
+ * @param {SpreadsheetApp.Range} equipmentCountRange
+ */
+function getTakenEquipmentCount(equipmentCountRange){
+  let count = 0;
+  const values = equipmentCountRange.getValues();
+  const styles = equipmentCountRange.getTextStyles();
+  for (let i = 0; i < values.length; i++){
+    for (let j = 0; j < values[i].length; j++){
+      if (!styles[i][j].isStrikethrough() && values[i][j]){
+        const num = Number(values[i][j].toString());
+        if (num === 0 || Number.isNaN(num)) continue;
+        count += num;
+      }
+    }
+  }
+  return count;
 }
