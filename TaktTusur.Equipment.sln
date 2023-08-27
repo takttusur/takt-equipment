@@ -1,8 +1,46 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaktTusur.Equipment.Domain", "TaktTusur.Equipment.Domain\TaktTusur.Equipment.Domain.csproj", "{A7B1695F-73F2-4375-BB3B-A46A3A1431F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaktTusur.Equipment.Domain.Tests", "TaktTusur.Equipment.Domain.Tests\TaktTusur.Equipment.Domain.Tests.csproj", "{4CC8F1EE-5A32-4BE6-A4AA-4030678330C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaktTusur.Equipment.Infrastructure", "TaktTusur.Equipment.Infrastructure\TaktTusur.Equipment.Infrastructure.csproj", "{4029658D-D996-4011-8802-8F885446B669}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaktTusur.Equipment.Api", "TaktTusur.Equipment.Api\TaktTusur.Equipment.Api.csproj", "{75A5E37D-EA6E-4345-9ACE-7DBA8C880F6E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaktTusur.Equipment.BackgroundWorker", "TaktTusur.Equipment.BackgroundWorker\TaktTusur.Equipment.BackgroundWorker.csproj", "{3EA6F09C-BBB8-49EA-B713-91BC3E20B0C0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaktTusur.Equipment.Clients.SpreadsheetsClient", "TaktTusur.Equipment.Clients.SpreadsheetsClient\TaktTusur.Equipment.Clients.SpreadsheetsClient.csproj", "{24E2422A-3673-41F8-84DE-9685528C48F5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A7B1695F-73F2-4375-BB3B-A46A3A1431F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7B1695F-73F2-4375-BB3B-A46A3A1431F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7B1695F-73F2-4375-BB3B-A46A3A1431F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7B1695F-73F2-4375-BB3B-A46A3A1431F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CC8F1EE-5A32-4BE6-A4AA-4030678330C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CC8F1EE-5A32-4BE6-A4AA-4030678330C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CC8F1EE-5A32-4BE6-A4AA-4030678330C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CC8F1EE-5A32-4BE6-A4AA-4030678330C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4029658D-D996-4011-8802-8F885446B669}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4029658D-D996-4011-8802-8F885446B669}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4029658D-D996-4011-8802-8F885446B669}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4029658D-D996-4011-8802-8F885446B669}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75A5E37D-EA6E-4345-9ACE-7DBA8C880F6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75A5E37D-EA6E-4345-9ACE-7DBA8C880F6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75A5E37D-EA6E-4345-9ACE-7DBA8C880F6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75A5E37D-EA6E-4345-9ACE-7DBA8C880F6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EA6F09C-BBB8-49EA-B713-91BC3E20B0C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EA6F09C-BBB8-49EA-B713-91BC3E20B0C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EA6F09C-BBB8-49EA-B713-91BC3E20B0C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EA6F09C-BBB8-49EA-B713-91BC3E20B0C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24E2422A-3673-41F8-84DE-9685528C48F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24E2422A-3673-41F8-84DE-9685528C48F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24E2422A-3673-41F8-84DE-9685528C48F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24E2422A-3673-41F8-84DE-9685528C48F5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

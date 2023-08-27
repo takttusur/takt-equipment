@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <UserSecretsId>dotnet-TaktTusur.Equipment.BackgroundWorker-BBB8C898-5B51-43E1-B211-DD4807F3934F</UserSecretsId>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="..\.dockerignore">
+        <Link>.dockerignore</Link>
+      </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\TaktTusur.Equipment.Clients.SpreadsheetsClient\TaktTusur.Equipment.Clients.SpreadsheetsClient.csproj" />
+      <ProjectReference Include="..\TaktTusur.Equipment.Domain\TaktTusur.Equipment.Domain.csproj" />
+    </ItemGroup>
+</Project>
