@@ -20,7 +20,6 @@
 
     <ItemGroup>
       <ProjectReference Include="..\TaktTusur.Equipment.Domain\TaktTusur.Equipment.Domain.csproj" />
-      <ProjectReference Include="..\TaktTusur.Equipment.Infrastructure\TaktTusur.Equipment.Infrastructure.csproj" />
     </ItemGroup>
 
 </Project>
