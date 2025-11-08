@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaktTusur.Equipment.Domain"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaktTusur.Equipment.Api", "TaktTusur.Equipment.Api\TaktTusur.Equipment.Api.csproj", "{75A5E37D-EA6E-4345-9ACE-7DBA8C880F6E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaktTusur.Equipment.DataAccess", "TaktTusur.Equipment.DataAccess\TaktTusur.Equipment.DataAccess.csproj", "{D81C70A6-8B70-4252-BF1D-2D1B29F957BE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{75A5E37D-EA6E-4345-9ACE-7DBA8C880F6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75A5E37D-EA6E-4345-9ACE-7DBA8C880F6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75A5E37D-EA6E-4345-9ACE-7DBA8C880F6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D81C70A6-8B70-4252-BF1D-2D1B29F957BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D81C70A6-8B70-4252-BF1D-2D1B29F957BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D81C70A6-8B70-4252-BF1D-2D1B29F957BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D81C70A6-8B70-4252-BF1D-2D1B29F957BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -6,5 +6,4 @@ namespace TaktTusur.Equipment.Api.Controllers;
 [Route("api/v1/{controller}")]
 public class EquipmentRequestController : ControllerBase
 {
-	//TODO:
 }
