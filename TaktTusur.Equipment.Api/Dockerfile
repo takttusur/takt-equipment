@@ -1,9 +1,9 @@
-﻿FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS base
+FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS base
 WORKDIR /app
-EXPOSE 80
-EXPOSE 443
+ENV ConnectionStrings__SQLiteConnection="Data Source=/tmp/equipment.db"
+EXPOSE 8080
 
-FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
+FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 WORKDIR /src
 COPY ["TaktTusur.Equipment.Api/TaktTusur.Equipment.Api.csproj", "TaktTusur.Equipment.Api/"]
 RUN dotnet restore "TaktTusur.Equipment.Api/TaktTusur.Equipment.Api.csproj"
