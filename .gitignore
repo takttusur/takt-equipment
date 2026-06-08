@@ -9,6 +9,11 @@
 *.user
 *.userosscache
 *.sln.docstates
+*.sln.iml
+*.slnx.user
+*.csproj.user
+*.vbproj.user
+*.vcxproj.user
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
@@ -29,9 +34,11 @@ bld/
 [Bb]in/
 [Oo]bj/
 [Ll]og/
+[Ll]ogs/
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
+.vsconfig.user
 # Uncomment if you have tasks that create the project's static files in wwwroot
 #wwwroot/
 
@@ -58,6 +65,10 @@ BenchmarkDotNet.Artifacts/
 project.lock.json
 project.fragment.lock.json
 artifacts/
+TestResults/
+coverage/
+coverage.*
+*.trx
 
 # StyleCop
 StyleCopReport.xml
@@ -255,6 +266,17 @@ ServiceFabricBackup/
 *.ldf
 *.ndf
 
+# Local SQLite databases
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+*.sqlite-shm
+*.sqlite-wal
+*.sqlite3-shm
+*.sqlite3-wal
+
 # Business Intelligence projects
 *.rdl.data
 *.bim.layout
@@ -357,11 +379,15 @@ MigrationBackup/
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
 
 # User-specific stuff
+.idea/.idea.*
+.idea/**/.idea.*
 .idea/**/workspace.xml
 .idea/**/tasks.xml
 .idea/**/usage.statistics.xml
 .idea/**/dictionaries
 .idea/**/shelf
+.idea/**/projectSettingsUpdater.xml
+.idea/**/indexLayout.xml
 
 # Generated files
 .idea/**/contentModel.xml
@@ -419,3 +445,22 @@ fabric.properties
 
 # Android studio 3.1+ serialized cache file
 .idea/caches/build_file_checksums.ser
+
+# Local application configuration and secrets
+appsettings.Local.json
+appsettings.*.Local.json
+*.local.json
+.env
+.env.*
+!.env.example
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Temporary editor files
+*.swp
+*.swo
+*.orig
+*.rej
